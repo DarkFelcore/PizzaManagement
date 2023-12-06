@@ -1,0 +1,9 @@
+<p class="m-0">
+  <span class="star-rating">
+    <label *ngFor="let star of stars()" [for]="'rate-' + star.value">
+      <i class="fa-solid fa-star stars" (click)="onRatingChanged(star.value)" ></i>
+      <input type="radio" name="rating" [id]="'rate-' + star.value" [value]="star.value">
+    </label>
+  </span>
+</p>
+  

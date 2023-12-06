@@ -1,0 +1,7 @@
+<p class="m-0">
+    <span class="star-rating">
+        <label *ngFor="let star of stars()" >
+            <i [class.selected]="star.selected" class="fa-solid fa-star"></i>
+        </label>
+    </span>
+</p>

@@ -1,0 +1,16 @@
+@for (step of steps; track $index) {
+    <div class="col-md-12 d-flex justify-content-between align-items-center step-item py-2">
+        <div ngClass="{{getColumnWidth()}}">
+            <h3 class="col-md-2 p-0 my-0 text-break">{{step.number}}.</h3>
+            <div class="col-md-10 p-0 pe-3">
+                <p class="my-0 text-break">{{step.description}}</p>
+            </div>
+        </div>
+        @if (isEditable) {
+            <button (click)="removeStep($index)" type="button" class="btn btn-danger col-md-3">
+                <i class="fa fa-remove"></i> 
+                Remove
+            </button>
+        }
+    </div>
+}

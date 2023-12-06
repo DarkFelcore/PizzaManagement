@@ -1,0 +1,23 @@
+img {
+    max-height: 10rem;
+    object-fit: cover;
+}
+
+.btn-rating {
+    border: 1px solid gold;
+    color: rgb(197, 168, 0) !important;
+    transition: all 0.2s ease-in-out;
+
+    i {
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+        background-color: gold !important;
+        color: white !important;
+
+        i {
+            color: #ffffff !important;
+        }
+    }
+}

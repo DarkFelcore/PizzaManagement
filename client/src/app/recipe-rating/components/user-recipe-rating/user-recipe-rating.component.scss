@@ -1,0 +1,12 @@
+.star-rating {
+	white-space: nowrap;
+}
+.star-rating [type="radio"] {
+	appearance: none;
+}
+.star-rating i {
+	font-size: 1.2em;
+}
+.selected {
+	color: #faec1b;
+}

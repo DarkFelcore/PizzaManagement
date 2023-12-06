@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        @if (ratings() && userRating()) {
+            <div class="col-md-12 text-center mb-3">
+                <h1 class="text-primary title">{{recipe()?.title | titlecase}}</h1>
+                <p>There are <strong>{{ratings().length}}</strong> rate(s) for this recipe!</p>
+            </div>
+            <form [formGroup]="ratingForm" (ngSubmit)="onRatingSubmit()">
+                @if (userRating()) {
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>Your current rating for this recipe</h3>
+                        <button [disabled]="ratingForm.invalid || ratingForm.get('stars')?.value === '0'" type="submit" class="btn btn-primary">Update my rating</button>
+                    </div>
+                } @else {
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>Give your own opinion</h3>
+                        <button [disabled]="ratingForm.invalid || ratingForm.get('stars')?.value === '0'" type="submit" class="btn btn-primary">Add my rating</button>
+                    </div>
+                }
+                <div class="col-md-12 my-4 d-flex justify-content-between align-items-center">
+                    <div class="form-group col-md-9">
+                        <label for="comment">Comment</label>
+                        <input id="comment" formControlName="comment" type="text" class="form-control" placeholder="Enter your recipe comment.." [value]="userRating()?.comment ?? ''">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="stars">Rating</label>
+                        <select id="stars" class="form-select" formControlName="stars">
+                            <option selected value="0">Select your rating</option>
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <hr />
+            <div class="col-md-12 mt-2">
+                <h3 class="mb-3">All ratings for this recipe</h3>
+                <app-recipe-rating-list [ratings]="ratings()"></app-recipe-rating-list>
+            </div>
+        }
+    </div>
+</div>

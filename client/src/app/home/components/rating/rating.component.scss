@@ -1,0 +1,18 @@
+.star-rating {
+	white-space: nowrap;
+}
+.star-rating [type="radio"] {
+	appearance: none;
+}
+.star-rating i {
+	font-size: 1.2em;
+}
+
+.star-rating label:is(:hover, :has(~ :hover)) i {
+    cursor: pointer;
+	color: #faec1b;
+}
+
+.selected {
+	color: #faec1b;
+}

@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ngx-spinner/animations/cube-transition.css";
+
+html,
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.text-primary {
+  color: #bd3b5f !important;
+}
+
+.btn-primary {
+  border: none;
+  background-color: #bd3b5f !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #922544 !important;
+  }
+}
+
+.btn-secondary {
+  border: none;
+  background-color: transparent !important;
+  color: #bd3b5f !important;
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.sub-title {
+  font-size: 1.2rem;
+}
+
+.border-radius {
+  border-radius: 0.5rem;
+}

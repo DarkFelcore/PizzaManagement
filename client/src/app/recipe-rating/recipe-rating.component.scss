@@ -1,0 +1,7 @@
+form {
+  input[type="text"]:focus {
+    border-color: #bd3b5f;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #bd3b5f;
+    outline: 0 none;
+  }
+}

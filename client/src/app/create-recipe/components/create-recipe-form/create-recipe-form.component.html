@@ -1,0 +1,81 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="createRecipeForm">
+    <div class="row mt-5">
+        <h3 class="text-primary mb-3">General Information</h3>
+        <div class="form-group mb-3 col-md-12">
+            <label for="title" class="form-label">Title</label>
+            <input formControlName="title" id="title" class="form-control" type="text" placeholder="Title">
+        </div>
+        <div class="form-group mb-3 col-md-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea formControlName="description" id="description" class="form-control" cols="20" rows="5" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group mb-3 custom-file-button col-md-12">
+            <label for="formFile" class="form-label">Image</label>
+            <input (change)="onFileSelected($event)" class="form-control" type="file" id="formFile">
+        </div>
+    </div>
+    <div class="row my-5">
+        <h3 class="text-primary mb-4">Ingredients</h3>
+        <p>Fill the field to add an new ingredient!</p>
+        <div class="form-group col-md-3">
+            <input #ingredientName type="text" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group col-md-3">
+            <input #ingredientQuantity type="text" class="form-control" placeholder="Quantity">
+        </div>
+        <div class="form-group col-md-3">
+            <input #ingredientMeasurement type="text" class="form-control" placeholder="Measurement">
+        </div>
+        <div class="form-group col-md-3">
+            <button (click)="addIngredientElement()" type="button" class="btn btn-primary w-100">
+                <i class="fa fa-plus"></i>
+                Add Ingredient
+            </button>
+        </div>
+        @if (ingredients && ingredients.length > 0) {
+            <div class="col-md-12 mt-3">
+                <app-ingredients-overview-table [isEditable]="true" [ingredients]="ingredients"></app-ingredients-overview-table>
+            </div>
+        }
+    </div>
+    <div class="row my-5">
+        <h3 class="text-primary mb-4">Preparation Time</h3>
+        <div class="form-group mb-3 col-md-6">
+            <label for="duration" class="form-label">Duration</label>
+            <input formControlName="preparationTime_duration" id="duration" class="form-control" type="text" placeholder="Duration">
+        </div>
+        <div class="form-group mb-3 col-md-6">
+            <label for="timeMeasurement" class="form-label">Time Measurement</label>
+            <select formControlName="preparationTime_timeMeasurement" id="timeMeasurement" class="form-select">
+                <option value="Seconds">Second(s)</option>
+                <option selected value="Minutes">Minute(s)</option>
+                <option value="Hours">Hour(s)</option>
+                <option value="Days">Day(s)</option>
+            </select>
+        </div>
+    </div>
+    <div class="row my-5">
+        <h3 class="text-primary mb-4">Preparation Steps</h3>
+        <p>Provide as much information as you can per step!</p>
+        <div class="form-group col-md-9">
+            <textarea #stepDescription type="text" class="form-control" placeholder="Add the preparation step description"></textarea>
+        </div>
+        <div class="form-group col-md-3">
+            <button (click)="addStep()" type="button" class="btn btn-primary w-100">
+                <i class="fa fa-plus"></i>
+                Add Step
+            </button>
+        </div>
+        @if (steps && steps.length > 0) {
+            <div class="col-md-12 mt-3">
+                <app-steps-overview [isEditable]="true" [steps]="steps"></app-steps-overview>
+            </div>
+        }
+
+    </div>
+    <button 
+        [disabled]="createRecipeForm.invalid || steps.length === 0 || ingredients.length === 0" 
+        type="submit" class="btn btn-primary">
+        Create my recipe
+    </button>
+</form>

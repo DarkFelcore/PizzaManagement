@@ -1,0 +1,7 @@
+@if (recipes()) {
+    <div class="d-flex flex-wrap align-items-start gap-4">
+        @for (recipe of recipes(); track $index) {
+            <app-recipe-item [recipe]="recipe"></app-recipe-item>
+        }
+    </div>
+}

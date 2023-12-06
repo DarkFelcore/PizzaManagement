@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" class="d-flex flex-column gap-3" [formGroup]="filterForm">
+    <div class="form-group">
+        <input #search type="text" class="form-control" formControlName="name" placeholder="Search a pizza..">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>

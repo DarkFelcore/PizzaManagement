@@ -1,0 +1,15 @@
+<div class="col-md-12 mb-3 p-4 item-container d-flex align-items-center">
+    <div class="col-md-4 d-flex align-items-center gap-3">
+        <img src="/assets/images/profile.png" alt="profile" class="img-fluid profile-img">
+        <div>
+            <p class="m-0"><strong>{{rating.firstName}} {{rating.lastName}}</strong></p>
+            <p class="m-0">{{rating.email}}</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p  class="m-0">{{rating.comment ?? "User did not provide a comment"}}</p>
+    </div>
+    <div class="col-md-2 d-flex justify-content-end">
+        <app-user-recipe-rating [starCount]="rating.stars"></app-user-recipe-rating>
+    </div>
+</div>

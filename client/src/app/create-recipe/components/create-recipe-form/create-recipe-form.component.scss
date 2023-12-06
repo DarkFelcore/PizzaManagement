@@ -1,0 +1,38 @@
+form {
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="file"]:focus,
+  select:focus {
+    border-color: #bd3b5f;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #bd3b5f;
+    outline: 0 none;
+  }
+
+  .custom-file-button input[type="file"] {
+    margin-left: -2px !important;
+  }
+
+  .custom-file-button input[type="file"]::-webkit-file-upload-button {
+    background-color: #bd3b5f;
+    border: 1px solid #bd3b5f;
+    color: #ffffff;
+  }
+  
+  .custom-file-button input[type="file"]::-webkit-file-upload-button,
+  .custom-file-button input[type="file"]::file-selector-button {
+    background-color: #bd3b5f;
+    border: 1px solid #bd3b5f;
+    color: #ffffff;
+  }
+
+  table {
+    tr, td {
+      vertical-align: middle;
+    }
+  }
+
+  .step-item {
+    border-bottom: 1px solid gray;
+  }
+
+}

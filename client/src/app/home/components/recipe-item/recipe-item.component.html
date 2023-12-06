@@ -1,0 +1,12 @@
+<div class="card" style="width: 19rem;">
+    <img class="img-fluid" [src]="recipe.image ? 'data:image/png;base64,' + recipe.image : '/assets/images/template-pizza.png'">
+    <div class="card-body">
+        <h5 class="card-title">{{recipe.title | titlecase}}</h5>
+        <small>Preparation time: {{recipe.preparationTime.duration}} {{recipe.preparationTime.timeMeasurement.toLocaleLowerCase()}}</small>
+        <p class="card-text" style="font-style:italic;text-overflow: ellipsis; overflow: hidden; text-wrap: nowrap;">{{recipe.description | titlecase}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <button #modalButton class="btn btn-primary" data-toggle="modal" (click)="onViewModalClicked(recipe)">View Details</button>
+            <button routerLink="/recipes/rating/{{recipe.id}}" class="btn btn-secondary btn-rating"><i class="fa fa-star text-warning"></i> Show ratings</button>
+        </div>
+    </div>
+</div>

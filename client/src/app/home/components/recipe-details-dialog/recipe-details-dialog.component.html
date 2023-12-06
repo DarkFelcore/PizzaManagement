@@ -1,0 +1,46 @@
+<div *ngIf="recipeService.getRecipeForDialog() as recipe" class="modal fade recipe-datails" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content p-5 bg-dark">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-9">
+                    <h1 class="m-0">{{recipe.title | titlecase}}</h1>
+                </div>
+                <div class="col-md-3">
+                    @defer () {
+                        <app-rating [recipeId]="recipe.id"></app-rating>
+                    } @placeholder {
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-12">
+                <p>Preparation time: <strong>{{recipe.preparationTime.duration}} {{recipe.preparationTime.timeMeasurement}}</strong></p>
+            </div>
+            <div class="col-md-12">
+                <span>{{recipe.description | titlecase}}</span>
+            </div>
+            @if (recipe.ingredients && recipe.ingredients.length > 0) {
+                <div class="col-md-12 mt-4 mb-3">
+                    <h4 class="m-0 text-primary text-center">Ingredients</h4>
+                    <div class="d-flex justify-content-center mb-3">
+                        <hr style="width: 10rem;" class="text-primary">
+                    </div>
+                    <app-ingredients-overview-table [ingredients]="recipe.ingredients"></app-ingredients-overview-table>
+                </div>
+            }
+            @if (recipe.steps && recipe.steps.length > 0) {
+                <div class="col-md-12 mt-2 mb-3">
+                    <h4 class="m-0 text-primary text-center">Steps</h4>
+                    <div class="d-flex justify-content-center mb-3">
+                        <hr style="width: 10rem;" class="text-primary">
+                    </div>
+                    <div class="ps-5">
+                        <app-steps-overview [steps]="recipe.steps"></app-steps-overview>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

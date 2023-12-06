@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between align-items-center p-4 gap-3">
+    <div>
+        <h2 routerLink="/recipes" style="cursor: pointer;">Recipe Management</h2>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+        @if (currentUser$ | async) {
+            <p class="m-0">Welcome, {{(currentUser$ | async)?.firstName}}!</p>
+            <button (click)="authService.logout()" class="btn btn-primary">Logout</button>
+        }
+        @else {
+            <button routerLink="/login" class="btn btn-secondary">Sign In</button>
+            <button routerLink="/register" class="btn btn-primary">Sign Up</button>
+        }
+    </div>
+</div>
